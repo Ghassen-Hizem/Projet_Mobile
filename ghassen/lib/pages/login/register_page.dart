@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-import './register_page.dart';
-import '../Home/HomePage.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
 
-  static const String routeName = "/login";
-  const LoginPage({Key? key}) : super(key: key);
+  static const String routeName = "/register";
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+
   bool isAPIcallProcess = false;
   bool hidePassword = true;
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
   String? username;
   String? password;
+  String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +33,14 @@ class _LoginPageState extends State<LoginPage> {
           key: UniqueKey(),
           child: Form(
             key: globalFormKey,
-            child: _loginUI(context),
+            child: _registerUI(context),
           ),
         ),
       ),
     );
   }
 
-  Widget _loginUI(BuildContext context) {
+  Widget _registerUI(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
               bottom: 30,
               top: 50,
             ),
-            child: Text("Login",
+            child: Text("Register",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
@@ -146,30 +146,28 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 25, top: 10),
-              child: RichText(
-                text: TextSpan(
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.0,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Forget Password ?',
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print("Forget Password");
-                          },
-                      )
-                    ]),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: FormHelper.inputFieldWidget(
+              context,
+              prefixIcon: const Icon(Icons.person),
+              "email",
+              "email",
+                  (onValidateVal) {
+                if (onValidateVal.isEmpty) {
+                  return "Email can\t be empty.";
+                }
+                return null;
+              },
+                  (onSavedVal) {
+                username = onSavedVal;
+              },
+              borderFocusColor: Colors.white,
+              prefixIconColor: Colors.white,
+              borderColor: Colors.white,
+              textColor: Colors.white,
+              hintColor: Colors.white.withOpacity(0.7),
+              borderRadius: 10,
             ),
           ),
           SizedBox(
@@ -177,10 +175,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Center(
             child: FormHelper.submitButton(
-              "Login",
-                  () {
-                Navigator.pushReplacementNamed(context, Home.routeName);
-              },
+              "Register",
+                  () {},
               btnColor: HexColor("#283B71"),
               borderColor: Colors.white,
               txtColor: Colors.white,
@@ -189,47 +185,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
           SizedBox(
             height: 20,
-          ),
-          Center(
-            child: Text(
-              "OR",
-
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 25, top: 10),
-              child: RichText(
-                text: TextSpan(
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.0,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(text: "Don't have an account ?  "),
-                      TextSpan(
-                        text: 'Sign up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushNamed(context, "/register");
-                          },
-                      )
-                    ]),
-              ),
-            ),
           ),
         ],
       ),
