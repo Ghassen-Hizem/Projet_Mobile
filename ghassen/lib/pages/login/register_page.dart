@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ghassen/pages/login/login.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
@@ -67,11 +68,12 @@ class _RegisterPageState extends State<RegisterPage> {
               children: [
                 Align(
                   alignment: Alignment.center,
-                  //child: Image.asset(
-                  //"assets/images/coding-folder.png",
-                  //width: 250,
-                  // fit: BoxFit.contain,
-                  //),
+                  child: Image.asset(
+                  "images/logo.png",
+                  width: 250,
+                  height: 200,
+                  fit: BoxFit.contain,
+                  ),
                 )
               ],
             ),
@@ -176,7 +178,9 @@ class _RegisterPageState extends State<RegisterPage> {
           Center(
             child: FormHelper.submitButton(
               "Register",
-                  () {},
+              () {
+    Navigator.pushReplacementNamed(context, LoginPage.routeName);
+    },
               btnColor: HexColor("#283B71"),
               borderColor: Colors.white,
               txtColor: Colors.white,
