@@ -3,8 +3,8 @@ const mysql = require('mysql2')
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'debian-sys-maint',
-  password: 'Vs92Sp4nxNuXeuoP',
+  user: 'your username',
+  password: 'random password',
   database: 'Collaboration_App'
 })
 
