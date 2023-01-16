@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghassen/pages/Home/HomePage.dart';
 import 'package:ghassen/pages/login/login.dart';
+import 'package:ghassen/pages/login/register_page.dart';
 
 import 'pages/Home/ProjetPage.dart';
 
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: LoginPage(),
       routes: {
-        Login.routeName: (context) => Login(),
+        LoginPage.routeName: (context) => LoginPage(),
+        RegisterPage.routeName: (context) => RegisterPage(),
         Home.routeName: (context) => Home(),
         ProjectPage.routeName: (context) => ProjectPage(),
       },

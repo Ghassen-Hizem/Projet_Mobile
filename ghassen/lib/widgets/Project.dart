@@ -32,7 +32,7 @@ class Project extends StatelessWidget {
               TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                  //foregroundColor: Colors.white,
                 ),
                 onPressed: () {
                   Navigator.pushNamed(context, ProjectPage.routeName);
@@ -42,7 +42,7 @@ class Project extends StatelessWidget {
               TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
+                  //foregroundColor: Colors.white,
                 ),
                 onPressed: () {
                   showDialog(
@@ -56,7 +56,7 @@ class Project extends StatelessWidget {
                                 child: const Text('Cancel'),
                                 style: TextButton.styleFrom(
                                   backgroundColor: Colors.blue,
-                                  foregroundColor: Colors.white,
+                                  //foregroundColor: Colors.white,
                                 ),
                               ),
                               TextButton(
@@ -64,7 +64,7 @@ class Project extends StatelessWidget {
                                 child: const Text('Yes'),
                                 style: TextButton.styleFrom(
                                   backgroundColor: Colors.red,
-                                  foregroundColor: Colors.white,
+                                  //oregroundColor: Colors.white,
                                 ),
                               ),
                             ],
