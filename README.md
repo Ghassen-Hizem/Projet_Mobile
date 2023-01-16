@@ -47,32 +47,38 @@ This is a mobile academic project called Collboration App , it organises tasks ,
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+TO install and run the application locally , the user need to follow some simple steps 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You need to have the following tools : 
+-Flutter sdk installed
+-android studio configured and installed
+-nodeJs installed
+
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Ghassen-Hizem/Projet_Mobile
    ```
-3. Install NPM packages
+2. cd into the "ghassen" folder
+
+3. Install flutter packages
+   ```sh
+   flutter pub get
+   ```
+   
+4. cd into the "Backend" folder
+
+5. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+6. run : nodemon app.js command in the terminal to launch the backend server (we don't have the same mysql database so there won't be any data on the local project) 
+ 
+7. go to the folder 'ghassen' , select your device and run the project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
